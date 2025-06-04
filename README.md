@@ -55,3 +55,24 @@ travel-ease/
 ├── templates/ # HTML files (if using Flask templating)
 ├── static/ # CSS/JS files
 └── README.md # This file
+
+
+📁 Folder & File Setup Summary
+rust
+Copy
+Edit
+travel-ease/
+│
+├── app/
+│   ├── __init__.py      ← Setup Flask app
+│   ├── routes.py        ← Define web routes
+│   ├── models.py        ← Will be for database
+│   ├── templates/
+│   │   └── index.html   ← Home page HTML
+│   └── static/          ← CSS, JS files (empty for now)
+│
+├── run.py               ← Entry point to run the app
+├── config.py            ← (We’ll use later)
+├── README.md            ← Already created
+├── requirements.txt     ← Installed Python packages
+├── venv/                ← Your virtual environment
