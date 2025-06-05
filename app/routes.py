@@ -1,7 +1,20 @@
-from flask import Blueprint, render_template
+from flask import render_template, redirect, url_for, flash
+from app import app, db
+from app.forms import BookingForm
+from app.models import Booking
 
-main = Blueprint('main', __name__)
-
-@main.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('index.html')
+    form = BookingForm()
+    if form.validate_on_submit():
+        booking = Booking(
+            name=form.name.data,
+            email=form.email.data,
+            destination=form.destination.data,
+            date=form.date.data
+        )
+        db.session.add(booking)
+        db.session.commit()
+        flash('Booking successful!', 'success')
+        return redirect(url_for('home'))
+    return render_template('home.html', form=form)

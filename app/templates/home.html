@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Travel Ease - Booking</title>
+</head>
+<body>
+    <h2>Book Your Trip</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>{{ form.name.label }} {{ form.name() }}</p>
+        <p>{{ form.email.label }} {{ form.email() }}</p>
+        <p>{{ form.destination.label }} {{ form.destination() }}</p>
+        <p>{{ form.date.label }} {{ form.date() }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <p style="color:green;">{{ message }}</p>
+      {% endfor %}
+    {% endwith %}
+</body>
+</html>
